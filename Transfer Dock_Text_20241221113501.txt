@@ -1,0 +1,31 @@
+// Generate captcha
+function generateCaptcha() {
+    const captchaContainer = document.getElementById('captcha-container');
+    const captcha = Math.floor(1000 + Math.random() * 9000);
+    captchaContainer.innerHTML = `Enter captcha: ${captcha}`;
+    return captcha;
+}
+
+// Validate USN and captcha
+function validateForm(event) {
+    event.preventDefault();
+    const usnInput = document.getElementById('usn');
+    const usn = usnInput.value.trim();
+    const captchaContainer = document.getElementById('captcha-container');
+    const captcha = parseInt(captchaContainer.textContent.split(': ')[1]);
+    const userCaptcha = parseInt(prompt('Enter captcha:'));
+    if (usn === '1VA22CD109' && userCaptcha === captcha) {
+        // Open uploaded PDF/image
+        const resultContainer = document.getElementById('result-container');
+        resultContainer.innerHTML = '<embed src="swasthiks.pdf" type="application/pdf" width="100%" height="500">';
+    } else {
+        alert('Invalid USN or captcha!');
+    }
+}
+
+// Add event listener to form
+const usnForm = document.getElementById('usn-form');
+usnForm.addEventListener('submit', validateForm);
+
+// Generate captcha on page load
+generateCaptcha();

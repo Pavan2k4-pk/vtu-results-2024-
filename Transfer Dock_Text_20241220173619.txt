@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VTU Results 2024</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>VTU Results 2024</h2>
+        <form id="usn-form">
+            <label for="usn">Enter USN:</label>
+            <input type="text" id="usn" name="usn">
+            <div id="captcha-container"></div>
+            <button id="submit-btn">Submit</button>
+        </form>
+        <div id="result-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
